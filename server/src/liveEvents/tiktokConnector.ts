@@ -11,12 +11,16 @@ export class TikTokConnector extends EventEmitter {
     this.connection = new TikTokLiveConnection(this.uniqueId.replace(/^@/, ''), { processInitialData:false, enableExtendedGiftInfo:true });
     (this.connection as any).on(WebcastEvent.CHAT, (data:any) => {
       const u=data.user;
-      this.emit('comment', { userId:String(u?.id||u?.userId||u?.uniqueId), username:u?.uniqueId||u?.nickname||'TikTok Kullanıcısı', displayName:u?.nickname||u?.uniqueId||'TikTok Kullanıcısı', avatarUrl:u?.avatarThumb?.urlList?.[0]||u?.avatarMedium?.urlList?.[0]||'', text:data.comment||'' } satisfies CommentEvent);
+      const event={ userId:String(u?.id||u?.userId||u?.uniqueId), username:u?.uniqueId||u?.nickname||'TikTok Kullanıcısı', displayName:u?.nickname||u?.uniqueId||'TikTok Kullanıcısı', avatarUrl:u?.avatarThumb?.urlList?.[0]||u?.avatarMedium?.urlList?.[0]||'', text:data.comment||'' } satisfies CommentEvent;
+      console.log(`[TikTok] yorum: ${event.displayName} → ${event.text}`);
+      this.emit('comment', event);
     });
     (this.connection as any).on(WebcastEvent.GIFT, (data:any) => {
       if(data.giftDetails?.giftType===1 && !data.repeatEnd) return;
       const u=data.user;
-      this.emit('gift', { userId:String(u?.id||u?.userId||u?.uniqueId), username:u?.uniqueId||u?.nickname||'TikTok Kullanıcısı', displayName:u?.nickname||u?.uniqueId||'TikTok Kullanıcısı', avatarUrl:u?.avatarThumb?.urlList?.[0]||u?.avatarMedium?.urlList?.[0]||'', giftType:data.giftDetails?.giftName||data.extendedGiftInfo?.name||'Rose' } satisfies GiftEvent);
+      const event={ userId:String(u?.id||u?.userId||u?.uniqueId), username:u?.uniqueId||u?.nickname||'TikTok Kullanıcısı', displayName:u?.nickname||u?.uniqueId||'TikTok Kullanıcısı', avatarUrl:u?.avatarThumb?.urlList?.[0]||u?.avatarMedium?.urlList?.[0]||'', giftType:data.giftDetails?.giftName||data.extendedGiftInfo?.name||'Rose' } satisfies GiftEvent;
+      console.log(`[TikTok] hediye: ${event.displayName} → ${event.giftType}`);
+      this.emit('gift', event);
     });
     this.connection.connect().then(s=>console.log(`[TikTok] @${this.uniqueId} LIVE bağlandı (oda ${s.roomId})`)).catch((e:Error)=>{console.warn(`[TikTok] @${this.uniqueId} bağlantısı bekliyor: ${e.message}`);this.scheduleRetry()});
   }

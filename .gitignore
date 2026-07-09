@@ -3,3 +3,4 @@ dist/
 server/dist/
 .env
 *.log
+server/data/runtime.log.err
