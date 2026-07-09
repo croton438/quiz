@@ -24,3 +24,14 @@ Sorular [server/data/questions.json](server/data/questions.json) içindedir. TTS
 
 - `npm run dev`: backend ve frontend'i birlikte başlatır.
 - `npm run build`: TypeScript ve Vite üretim derlemesi.
+
+## Vercel ile yayın ekranı
+
+Bu proje iki parçadan oluşur: Vercel'e yalnızca yayın ekranı (frontend) gider; TikTok yorumlarını dinleyen Node.js connector yayın bilgisayarında açık kalır.
+
+1. Vercel'de `croton438/quiz` reposunu **Import** edin. `vercel.json` derleme ve SPA yönlendirmesini otomatik ayarlar.
+2. Deploy sonrası yayın ekranı adresi `https://<vercel-proje-adresi>.vercel.app/broadcast` olur. Bu HTTPS adresini TikTok LIVE Studio Browser Source'a girin.
+3. Yayın bilgisayarında `.env` oluşturun ve `TIKTOK_LIVE_ENABLED=true`, `TIKTOK_USERNAME=twinder6` ekleyin.
+4. Aynı bilgisayarda `npm run dev:server` çalıştırın. Vercel ekranı Socket.io için varsayılan olarak bu bilgisayardaki `http://localhost:3001` adresine bağlanır.
+
+Eğer LIVE Studio, HTTPS Vercel ekranının yerel `localhost:3001` Socket.io bağlantısını engellerse backend'i HTTPS bir tunnel veya sürekli çalışan bir Node.js sunucusuna taşıyıp Vercel Environment Variable olarak `VITE_SOCKET_URL=https://<backend-adresi>` tanımlayın ve yeniden deploy edin.
