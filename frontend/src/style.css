@@ -27,3 +27,8 @@
   .feed{left:28px;bottom:17px;width:calc(100% - 56px);padding:8px 12px}.feed p{font-size:11px;margin:4px 0}.feed h3{font-size:9px}
   .gift-pop{top:16%;padding:11px 18px}.gift-pop img{width:54px;height:54px}.gift-pop b{font-size:15px}.gift-pop small{font-size:11px}
 }
+/* Dikey yayında akış ve leaderboard birbirini kapatmasın. */
+.broadcast .content{height:auto}
+.broadcast aside{height:auto;max-height:500px;overflow:hidden}
+.broadcast .feed{position:relative;left:auto;bottom:auto;width:auto;margin:18px 0 0;border-radius:0 12px 12px 0}
+.broadcast .empty{margin:20px 0;font-size:13px;line-height:1.5}
