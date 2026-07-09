@@ -1,0 +1,1 @@
+export class TtsService { announce(text:string){ console.log(`[TTS mock] ${text}`); } nextQuestion(q:string){this.announce('Sıradaki soru geliyor');this.announce(q)} answer(a:string){this.announce(`Doğru cevap ${a} şıkkıydı`)} leader(name:string){this.announce(`${name} liderliğe yükseldi`)} }

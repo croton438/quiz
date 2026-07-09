@@ -1,0 +1,10 @@
+[
+  {"id":"q1","category":"Genel Kültür","question":"Türkiye’nin başkenti neresidir?","options":{"A":"İstanbul","B":"Ankara","C":"İzmir","D":"Bursa"},"correctAnswer":"B","difficulty":"easy"},
+  {"id":"q2","category":"Bilim","question":"Su hangi sıcaklıkta deniz seviyesinde kaynar?","options":{"A":"50°C","B":"80°C","C":"100°C","D":"120°C"},"correctAnswer":"C","difficulty":"easy"},
+  {"id":"q3","category":"Coğrafya","question":"Dünyanın en büyük okyanusu hangisidir?","options":{"A":"Atlas","B":"Pasifik","C":"Hint","D":"Arktik"},"correctAnswer":"B","difficulty":"easy"},
+  {"id":"q4","category":"Spor","question":"Bir futbol takımında sahada kaç oyuncu bulunur?","options":{"A":"9","B":"10","C":"11","D":"12"},"correctAnswer":"C","difficulty":"easy"},
+  {"id":"q5","category":"Tarih","question":"İstanbul’u fetheden Osmanlı padişahı kimdir?","options":{"A":"Fatih Sultan Mehmet","B":"Yavuz Sultan Selim","C":"Kanuni Sultan Süleyman","D":"II. Abdülhamid"},"correctAnswer":"A","difficulty":"easy"},
+  {"id":"q6","category":"Sanat","question":"Mona Lisa tablosunun ressamı kimdir?","options":{"A":"Van Gogh","B":"Picasso","C":"Leonardo da Vinci","D":"Michelangelo"},"correctAnswer":"C","difficulty":"easy"},
+  {"id":"q7","category":"Doğa","question":"Güneş sisteminin en büyük gezegeni hangisidir?","options":{"A":"Mars","B":"Jüpiter","C":"Satürn","D":"Dünya"},"correctAnswer":"B","difficulty":"easy"},
+  {"id":"q8","category":"Genel Kültür","question":"Türkiye’nin para birimi nedir?","options":{"A":"Euro","B":"Dolar","C":"Türk lirası","D":"Sterlin"},"correctAnswer":"C","difficulty":"easy"}
+]
